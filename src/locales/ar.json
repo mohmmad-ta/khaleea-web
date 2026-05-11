@@ -1,0 +1,75 @@
+{
+  "brand": {
+    "name": "خلية"
+  },
+  "nav": {
+    "home": "الرئيسية",
+    "eMenu": "القائمة الإلكترونية",
+    "downloadApp": "تحميل التطبيق"
+  },
+  "download": {
+    "scanTitle": "امسح الرمز لتحميل التطبيق",
+    "cameraHint": "وجّه كاميرا الهاتف إلى الرمز في الأعلى",
+    "done": "تم",
+    "downloadFrom": "تحميل من",
+    "iosStore": "App Store · iOS & iPadOS",
+    "androidStore": "Google Play · Android"
+  },
+  "home": {
+    "serviceArea": "التوصيل متوفر في مدينة بعقوبة",
+    "headlineStart": "اطلب",
+    "headlineAccent": "من أي مكان،",
+    "headlineEnd": "في أي وقت.",
+    "description": "خلية هو تطبيق توصيل شامل للطعام ، وتجربة سهلة من الطلب حتى الاستلام.",
+    "topFive": "الأكثر طلباً",
+    "topFiveHint": "خصومات مميزة اليوم",
+    "specialOffer": "عرض خاص",
+    "nearbyRestaurants": "على المطاعم القريبة",
+    "appPreviewAlt": "معاينة التطبيق"
+  },
+  "eMenu": {
+    "label": "القائمة الإلكترونية",
+    "title": "قوائم المطاعم",
+    "description": "اختر مطعمك وشاهد قائمة الطعام.",
+    "searchLabel": "البحث عن مطعم",
+    "searchPlaceholder": "ابحث باسم المطعم أو الوجبة",
+    "searchButton": "بحث",
+    "emptyTitle": "لا توجد نتائج",
+    "emptySearch": "جرّب البحث باسم آخر.",
+    "emptyRestaurants": "لا توجد مطاعم متاحة حالياً.",
+    "viewMenu": "مشاهدة القائمة",
+    "minute": "دقيقة"
+  },
+  "restaurant": {
+    "openNow": "مفتوح الآن",
+    "closedNow": "مغلق الآن",
+    "rating": "التقييم",
+    "time": "الوقت",
+    "discount": "الخصم",
+    "emptyMealsTitle": "لا توجد وجبات متاحة",
+    "emptyMealsDescription": "سيتم عرض القائمة هنا عند إضافة الوجبات من لوحة المطعم.",
+    "previousCategory": "الصنف السابق",
+    "nextCategory": "الصنف التالي"
+  },
+  "meal": {
+    "backToMenu": "رجوع للقائمة",
+    "restaurantOpen": "المطعم مفتوح",
+    "restaurantClosed": "المطعم مغلق",
+    "extras": "الإضافات",
+    "notes": "ملاحظات",
+    "free": "مجانا",
+    "close": "إغلاق"
+  },
+  "common": {
+    "currency": "د.ع",
+    "fallbackCategory": "أخرى"
+  },
+  "errors": {
+    "restaurantsLoad": "تعذر تحميل المطاعم",
+    "restaurantMenuLoad": "تعذر تحميل قائمة المطعم",
+    "mealLoad": "تعذر تحميل تفاصيل الوجبة",
+    "timeout": "انتهت مهلة الاتصال بالخادم",
+    "network": "تعذر الاتصال بالخادم، حاول مرة أخرى",
+    "generic": "حدث خطأ غير متوقع"
+  }
+}

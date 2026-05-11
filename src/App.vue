@@ -1,13 +1,15 @@
 <script setup>
 import { computed, ref } from 'vue'
 import { RouterView } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 import Navbar from './components/Navbar.vue'
 
-const navLinks = [
-  { href: '#home', label: 'الرئيسية', icon: '•' },
-  { href: '#features', label: 'المميزات', icon: '•' },
-  { href: '#download', label: 'التحميل', icon: '•' },
-]
+const { t } = useI18n()
+
+const navLinks = computed(() => [
+  { to: { path: '/', hash: '#home' }, label: t('nav.home') },
+  { to: { name: 'e-menu' }, label: t('nav.eMenu') },
+])
 
 const qrPattern = ref([])
 const isModalOpen = ref(false)
@@ -16,7 +18,7 @@ const androidApkPath = '/Android-Play-Store-build.apk'
 
 const modalIcon = computed(() => (activePlatform.value === 'ios' ? 'iOS' : 'APK'))
 const modalStore = computed(() =>
-  activePlatform.value === 'ios' ? 'App Store · iOS & iPadOS' : 'Google Play · Android',
+  activePlatform.value === 'ios' ? t('download.iosStore') : t('download.androidStore'),
 )
 
 const buildQrPattern = () => {
@@ -72,7 +74,7 @@ const handleDownloadRequest = (platform) => {
         <div class="mx-auto mb-4 flex h-[66px] w-[66px] items-center justify-center rounded-[20px] bg-brand-accent text-lg font-extrabold text-white">
           {{ modalIcon }}
         </div>
-        <h3 class="text-[22px] font-extrabold">امسح الرمز لتحميل التطبيق</h3>
+        <h3 class="text-[22px] font-extrabold">{{ t('download.scanTitle') }}</h3>
         <p class="mt-1 text-[13px] text-brand-secondary">{{ modalStore }}</p>
         <div class="mx-auto my-5 grid w-[164px] grid-cols-8 gap-[3px] rounded-[14px] border-[3px] border-brand-accent bg-[#f8f8f8] p-4">
           <div
@@ -82,13 +84,13 @@ const handleDownloadRequest = (platform) => {
             :class="cell ? 'bg-brand-primary' : 'bg-transparent'"
           ></div>
         </div>
-        <p class="mb-6 text-xs text-[#bbbbbb]">وجّه كاميرا الهاتف إلى الرمز في الأعلى</p>
+        <p class="mb-6 text-xs text-[#bbbbbb]">{{ t('download.cameraHint') }}</p>
         <button
           type="button"
           class="rounded-xl bg-brand-accent px-10 py-3 text-[15px] font-bold text-white"
           @click="isModalOpen = false"
         >
-          تم
+          {{ t('download.done') }}
         </button>
       </div>
     </div>

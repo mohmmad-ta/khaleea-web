@@ -1,5 +1,8 @@
 <script setup>
+import { useI18n } from 'vue-i18n'
 import heroPhoneReference from '../assets/hero-phone-reference.png'
+
+const { t } = useI18n()
 
 defineProps({
   openDownloadModal: {
@@ -27,19 +30,19 @@ const heroStats = []
         <div class="min-w-[300px] flex-1 text-right">
           <div class="anim-fade-up anim-delay-1 mb-6 inline-flex items-center gap-2 rounded-full border border-brand-accent/30 bg-brand-accent/10 px-4 py-1.5 text-[13px] font-semibold text-brand-accent">
             <span class="anim-pulse-dot inline-block h-[7px] w-[7px] rounded-full bg-brand-accent"></span>
-            التوصيل متوفر في مدينة بعقوبة
+            {{ t('home.serviceArea') }}
           </div>
 
           <h1 class="anim-fade-up anim-delay-2 mb-6 font-display text-[clamp(40px,5.5vw,68px)] font-black leading-[1.4] text-white">
-            اطلب
+            {{ t('home.headlineStart') }}
             <br />
-            <span class="text-brand-accent">من أي مكان،</span>
+            <span class="text-brand-accent">{{ t('home.headlineAccent') }}</span>
             <br />
-            في أي وقت.
+            {{ t('home.headlineEnd') }}
           </h1>
 
           <p class="anim-fade-up anim-delay-3 mb-9 text-lg max-w-[460px] leading-[1.78] text-white/55">
-            خلية هو تطبيق توصيل شامل للطعام ، وتجربة سهلة من الطلب حتى الاستلام.
+            {{ t('home.description') }}
           </p>
 
 
@@ -51,7 +54,7 @@ const heroStats = []
             >
               <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/15 text-[13px] font-extrabold">iOS</span>
               <span class="text-right">
-                <span class="block text-sm opacity-60">تحميل من</span>
+                <span class="block text-sm opacity-60">{{ t('download.downloadFrom') }}</span>
                 <span class="block text-base font-extrabold">App Store</span>
               </span>
             </button>
@@ -63,7 +66,7 @@ const heroStats = []
             >
               <span class="flex h-11 w-11 items-center justify-center rounded-2xl bg-white/15 text-[13px] font-extrabold">APK</span>
               <span class="text-right">
-                <span class="block text-sm opacity-60">تحميل من</span>
+                <span class="block text-sm opacity-60">{{ t('download.downloadFrom') }}</span>
                 <span class="block text-base font-extrabold">Google Play</span>
               </span>
             </button>
@@ -80,8 +83,8 @@ const heroStats = []
               TOP5
             </div>
             <div>
-              <div class="text-xs font-bold text-brand-primary">الأكثر طلباً</div>
-              <div class="text-[10px] text-brand-secondary">خصومات مميزة اليوم</div>
+              <div class="text-xs font-bold text-brand-primary">{{ t('home.topFive') }}</div>
+              <div class="text-[10px] text-brand-secondary">{{ t('home.topFiveHint') }}</div>
             </div>
           </div>
 
@@ -90,8 +93,8 @@ const heroStats = []
               10%
             </div>
             <div>
-              <div class="text-xs font-bold text-brand-primary">عرض خاص</div>
-              <div class="text-[10px] text-brand-secondary">على المطاعم القريبة</div>
+              <div class="text-xs font-bold text-brand-primary">{{ t('home.specialOffer') }}</div>
+              <div class="text-[10px] text-brand-secondary">{{ t('home.nearbyRestaurants') }}</div>
             </div>
           </div>
 
@@ -99,7 +102,7 @@ const heroStats = []
             <div class="overflow-hidden rounded-[34px] bg-[#111]">
               <img
                 :src="heroPhoneReference"
-                alt="معاينة التطبيق"
+                :alt="t('home.appPreviewAlt')"
                 class="block h-[595px] w-full object-cover"
               />
             </div>

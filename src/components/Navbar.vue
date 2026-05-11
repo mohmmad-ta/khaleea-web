@@ -1,6 +1,9 @@
 <script setup>
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { RouterLink } from 'vue-router'
+import { useI18n } from 'vue-i18n'
+
+const { t } = useI18n()
 
 const props = defineProps({
   navLinks: {
@@ -25,8 +28,8 @@ const closeMobileMenu = () => {
 const navWrapperClass = computed(() => [
   'fixed inset-x-0 top-0 z-[200] transition-all duration-300',
   isScrolled.value
-    ? 'bg-brand-primary/95 shadow-[0_4px_30px_rgba(0,0,0,0.35)] backdrop-blur-xl'
-    : 'bg-transparent',
+    ? 'backdrop-blur-xl bg-brand-primary/30'
+    : 'backdrop-blur-lg bg-brand-primary/5',
 ])
 
 const handleDownloadClick = () => {
@@ -54,9 +57,22 @@ onBeforeUnmount(() => {
       >
         <img class="w-14" src="/logo.png" alt="logo">
         <span class="text-4xl font-black leading-none">
-          خلية
+          {{ t('brand.name') }}
         </span>
       </RouterLink>
+
+      <nav class="hidden items-center gap-1 lg:flex">
+        <RouterLink
+          v-for="link in navLinks"
+          :key="link.label"
+          :to="link.to"
+          class="rounded-full px-4 py-2 text-sm font-bold text-white/75 transition hover:bg-white/10 hover:text-white"
+          active-class="bg-white/10 text-white"
+          @click="closeMobileMenu"
+        >
+          {{ link.label }}
+        </RouterLink>
+      </nav>
 
       <div class="hidden items-center gap-3 lg:flex">
         <button
@@ -65,7 +81,7 @@ onBeforeUnmount(() => {
           @click="handleDownloadClick"
         >
           <span>↓</span>
-          تحميل التطبيق
+          {{ t('nav.downloadApp') }}
         </button>
       </div>
 
@@ -81,9 +97,19 @@ onBeforeUnmount(() => {
 
     <div
       v-if="mobileMenuOpen"
-      class="border-t border-white/10 bg-brand-primary/95 px-6 py-4 backdrop-blur-xl lg:hidden"
+      class=" px-6 py-4 lg:hidden"
     >
       <div class="flex flex-col gap-1">
+        <RouterLink
+          v-for="link in navLinks"
+          :key="link.label"
+          :to="link.to"
+          class="rounded-[8px] px-4 py-3 text-right text-sm font-bold text-white/85 transition hover:bg-white/10 hover:text-white"
+          active-class="bg-white/10 text-white"
+          @click="closeMobileMenu"
+        >
+          {{ link.label }}
+        </RouterLink>
 
         <div class="mt-3 flex flex-col gap-2">
           <button
@@ -92,7 +118,7 @@ onBeforeUnmount(() => {
             @click="handleDownloadClick"
           >
             <span>↓</span>
-            تحميل التطبيق
+            {{ t('nav.downloadApp') }}
           </button>
         </div>
       </div>
