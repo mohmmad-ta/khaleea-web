@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --main: #F15A29;
+  --primary: #231F20;
+  --secondary: #717171;
+}
+
+@font-face {
+  font-family: 'Almarai';
+  src: url('./assets/fonts/ArbFONTS-Almarai-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Almarai';
+  src: url('./assets/fonts/ArbFONTS-Almarai-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply m-0 bg-brand-primary font-body text-white antialiased;
+    background-image:
+      radial-gradient(circle at top left, rgba(241, 90, 41, 0.16), transparent 28%),
+      linear-gradient(180deg, #231f20 0%, #151213 100%);
+    overflow-x: hidden;
+  }
+
+  html[dir='rtl'] body {
+    direction: rtl;
+  }
+
+  * {
+    @apply box-border;
+  }
+
+  a {
+    @apply no-underline;
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateX(56px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.15);
+    opacity: 0.7;
+  }
+}
+
+@keyframes float-soft {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+.anim-fade-up {
+  opacity: 0;
+  animation: fade-up 0.8s ease forwards;
+}
+
+.anim-slide-in {
+  opacity: 0;
+  animation: slide-in 0.95s ease forwards;
+}
+
+.anim-spin-slow {
+  animation: spin-slow 22s linear infinite;
+}
+
+.anim-spin-reverse {
+  animation: spin-reverse 34s linear infinite;
+}
+
+.anim-pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+.anim-float-soft {
+  animation: float-soft 6s ease-in-out infinite;
+}
+
+.anim-delay-1 {
+  animation-delay: 0.12s;
+}
+
+.anim-delay-2 {
+  animation-delay: 0.24s;
+}
+
+.anim-delay-3 {
+  animation-delay: 0.36s;
+}
+
+.anim-delay-4 {
+  animation-delay: 0.48s;
+}
+
+.anim-delay-5 {
+  animation-delay: 0.6s;
+}
+
+.anim-delay-6 {
+  animation-delay: 0.72s;
+}
