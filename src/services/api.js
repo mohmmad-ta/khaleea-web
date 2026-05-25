@@ -1,7 +1,7 @@
 import axios from 'axios'
 import ar from '../locales/ar.json'
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:7060/api/v1'
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://api.khaleeaapp.com/api/v1'
 const APP_CLIENT_KEY = import.meta.env.VITE_APP_CLIENT_KEY
 const PUBLIC_BASE_URL = API_BASE_URL.replace(/\/api\/v1\/?$/, '')
 

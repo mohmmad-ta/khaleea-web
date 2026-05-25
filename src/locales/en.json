@@ -1,0 +1,156 @@
+{
+  "brand": {
+    "name": "Khaleea"
+  },
+  "nav": {
+    "home": "Home",
+    "eMenu": "E-menu",
+    "privacy": "Privacy Policy",
+    "downloadApp": "Download app"
+  },
+  "download": {
+    "scanTitle": "Scan the code to download the app",
+    "cameraHint": "Point your phone camera at the code above",
+    "done": "Done",
+    "choosePlatform": "Choose your device",
+    "choosePlatformHint": "Download Khaleea from the store for your device.",
+    "cancel": "Cancel",
+    "downloadFrom": "Download from",
+    "iosStore": "App Store · iOS & iPadOS",
+    "androidStore": "Google Play · Android"
+  },
+  "home": {
+    "serviceArea": "Delivery is available in Baqubah",
+    "headlineStart": "Order",
+    "headlineAccent": "from anywhere,",
+    "headlineEnd": "anytime.",
+    "description": "Khaleea is an all-in-one food delivery app with a simple experience from order to delivery.",
+    "topFive": "Most ordered",
+    "topFiveHint": "Special discounts today",
+    "specialOffer": "Special offer",
+    "nearbyRestaurants": "On nearby restaurants",
+    "appPreviewAlt": "App preview"
+  },
+  "eMenu": {
+    "label": "E-menu",
+    "title": "Restaurant menus",
+    "description": "Choose your restaurant and view the menu.",
+    "searchLabel": "Search for a restaurant",
+    "searchPlaceholder": "Search by restaurant or meal",
+    "searchButton": "Search",
+    "emptyTitle": "No results",
+    "emptySearch": "Try another search term.",
+    "emptyRestaurants": "No restaurants are available right now.",
+    "viewMenu": "View menu",
+    "minute": "min"
+  },
+  "restaurant": {
+    "openNow": "Open now",
+    "closedNow": "Closed now",
+    "rating": "Rating",
+    "time": "Time",
+    "discount": "Discount",
+    "emptyMealsTitle": "No meals available",
+    "emptyMealsDescription": "The menu will appear here when meals are added from the restaurant dashboard.",
+    "previousCategory": "Previous category",
+    "nextCategory": "Next category"
+  },
+  "meal": {
+    "backToMenu": "Back to menu",
+    "restaurantOpen": "Restaurant open",
+    "restaurantClosed": "Restaurant closed",
+    "extras": "Extras",
+    "notes": "Notes",
+    "free": "Free",
+    "close": "Close"
+  },
+  "common": {
+    "currency": "IQD",
+    "fallbackCategory": "Other"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "languageLabel": "Language",
+    "arabic": "العربية",
+    "english": "English",
+    "updatedAt": "Last updated: 2026/5/11",
+    "intro": "At [Khaleea], we are committed to protecting your privacy and keeping your data confidential. This Privacy Policy explains how we collect, use, and protect your personal information when you use our app. By using the app, you agree to the terms described in this policy.",
+    "sections": [
+      {
+        "title": "1. Information We Collect",
+        "body": [
+          "We collect two types of information:",
+          "1.1 Personal information:",
+          "• Personal identification information that you provide when registering or using the app, such as your name and phone number.",
+          "• Account and profile information.",
+          "1.2 Non-personal information:",
+          "• Information collected automatically such as device data, operating system, IP address, and usage history."
+        ]
+      },
+      {
+        "title": "2. How We Use Information",
+        "body": [
+          "We use the information we collect for the following purposes:",
+          "• Providing services and improving app performance.",
+          "• Personalizing your experience and providing customized content.",
+          "• Contacting you about updates, offers, or technical support.",
+          "• Analyzing usage data to improve our products and services.",
+          "• Complying with applicable legal obligations and regulations."
+        ]
+      },
+      {
+        "title": "3. Sharing Information with Third Parties",
+        "body": [
+          "We do not sell or rent your personal information to any third party. However, we may share your information with:",
+          "• External service providers who help operate the app, such as hosting providers.",
+          "• Government or legal authorities if required by law or to protect our rights or the rights of other users."
+        ]
+      },
+      {
+        "title": "4. Information Security",
+        "body": [
+          "We use appropriate security technologies, such as encryption, to protect your data from unauthorized access, modification, disclosure, or destruction. However, no security system can be guaranteed to be 100% secure."
+        ]
+      },
+      {
+        "title": "5. Cookies",
+        "body": [
+          "The app uses cookies to collect and analyze data about how you use the app. You can modify your browser settings to refuse cookies, but this may affect certain app functions."
+        ]
+      },
+      {
+        "title": "6. User Rights",
+        "body": [
+          "• You can access, modify, or delete the information we collect about you at any time through your account settings.",
+          "• You can request permanent deletion of your account and personal information from our databases, provided that we are not legally required to retain it for a longer period."
+        ]
+      },
+      {
+        "title": "7. Children’s Privacy",
+        "body": [
+          "We do not direct our services to children under the age of 13 and do not knowingly collect personal information from them. If we discover that we have collected information from a child without parental consent, we will delete it immediately."
+        ]
+      },
+      {
+        "title": "8. Changes to this Privacy Policy",
+        "body": [
+          "We reserve the right to update this Privacy Policy from time to time. You will be notified of any major changes through the app or by email."
+        ]
+      },
+      {
+        "title": "9. Contact Us",
+        "body": [
+          "If you have any questions or concerns about this Privacy Policy or how we handle your personal information, you can contact us by email: [support@khaleeaapp.com]"
+        ]
+      }
+    ]
+  },
+  "errors": {
+    "restaurantsLoad": "Could not load restaurants",
+    "restaurantMenuLoad": "Could not load restaurant menu",
+    "mealLoad": "Could not load meal details",
+    "timeout": "The server request timed out",
+    "network": "Could not connect to the server. Please try again",
+    "generic": "An unexpected error occurred"
+  }
+}

@@ -9,12 +9,15 @@ const { t } = useI18n()
 const navLinks = computed(() => [
   { to: { path: '/', hash: '#home' }, label: t('nav.home') },
   { to: { name: 'e-menu' }, label: t('nav.eMenu') },
+  { to: { name: 'privacy-policy' }, label: t('nav.privacy') },
 ])
 
 const qrPattern = ref([])
 const isModalOpen = ref(false)
+const isPlatformPickerOpen = ref(false)
 const activePlatform = ref('ios')
 const androidApkPath = '/Android-Play-Store-build.apk'
+const iosAppStoreUrl = 'https://apps.apple.com/us/app/khaleea-%D8%AE%D9%84%D9%8A%D8%A9/id6766290009?l=ar'
 
 const modalIcon = computed(() => (activePlatform.value === 'ios' ? 'iOS' : 'APK'))
 const modalStore = computed(() =>
@@ -54,17 +57,77 @@ const downloadAndroidApp = () => {
 }
 
 const handleDownloadRequest = (platform) => {
+  if (!platform) {
+    isPlatformPickerOpen.value = true
+    return
+  }
+
+  isPlatformPickerOpen.value = false
+
   if (platform === 'android') {
     downloadAndroidApp()
     return
   }
 
-  openDownloadModal('ios')
+  window.location.href = iosAppStoreUrl
 }
 </script>
 
 <template>
   <div class="overflow-hidden">
+    <div
+      v-if="isPlatformPickerOpen"
+      class="fixed inset-0 z-[999] flex items-center justify-center bg-black/70 px-4 backdrop-blur-md"
+      @click.self="isPlatformPickerOpen = false"
+    >
+      <div class="relative isolate w-full max-w-[390px] overflow-hidden rounded-[28px] border border-white/10 bg-[linear-gradient(145deg,#231F20_0%,#171210_100%)] p-6 text-white shadow-[0_30px_90px_rgba(0,0,0,0.55)] [clip-path:inset(0_round_28px)] sm:p-8">
+        <div class="pointer-events-none absolute -right-16 -top-20 h-44 w-44 rounded-full bg-brand-accent/20 blur-3xl"></div>
+        <div class="pointer-events-none absolute -bottom-20 -left-16 h-40 w-40 rounded-full bg-brand-accent/10 blur-3xl"></div>
+
+        <div class="relative mb-6 text-right">
+          <div class="mb-4 inline-flex rounded-full border border-brand-accent/25 bg-brand-accent/10 px-3 py-1 text-xs font-bold text-brand-accent">
+            {{ t('nav.downloadApp') }}
+          </div>
+          <h3 class="text-[22px] font-extrabold text-white">{{ t('download.choosePlatform') }}</h3>
+          <p class="mt-2 text-sm leading-6 text-white/55">{{ t('download.choosePlatformHint') }}</p>
+        </div>
+
+        <div class="relative space-y-3">
+          <button
+            type="button"
+            class="flex w-full items-center justify-between rounded-2xl border border-brand-accent/50 bg-brand-accent px-4 py-4 text-white transition hover:-translate-y-0.5 hover:shadow-[0_14px_32px_rgba(241,90,41,0.35)]"
+            @click="handleDownloadRequest('ios')"
+          >
+            <span class="text-right">
+              <span class="block text-xs text-white/70">{{ t('download.downloadFrom') }}</span>
+              <span class="block text-base font-extrabold">App Store</span>
+            </span>
+            <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-white/15 text-sm font-extrabold">iOS</span>
+          </button>
+
+          <button
+            type="button"
+            class="flex w-full items-center justify-between rounded-2xl border border-white/15 bg-white/5 px-4 py-4 text-white transition hover:-translate-y-0.5 hover:border-brand-accent/45 hover:bg-white/10"
+            @click="handleDownloadRequest('android')"
+          >
+            <span class="text-right">
+              <span class="block text-xs text-white/55">{{ t('download.downloadFrom') }}</span>
+              <span class="block text-base font-extrabold">Android</span>
+            </span>
+            <span class="flex h-11 w-11 items-center justify-center rounded-xl bg-white/10 text-xs font-extrabold text-brand-accent">APK</span>
+          </button>
+        </div>
+
+        <button
+          type="button"
+          class="relative mt-5 w-full rounded-xl py-3 text-sm font-bold text-white/55 transition hover:bg-white/5 hover:text-white"
+          @click="isPlatformPickerOpen = false"
+        >
+          {{ t('download.cancel') }}
+        </button>
+      </div>
+    </div>
+
     <div
       v-if="isModalOpen"
       class="fixed inset-0 z-[999] flex items-center justify-center bg-black/70 px-4 backdrop-blur-md"

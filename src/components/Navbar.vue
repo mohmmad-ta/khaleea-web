@@ -34,7 +34,7 @@ const navWrapperClass = computed(() => [
 
 const handleDownloadClick = () => {
   closeMobileMenu()
-  emit('open-download', 'android')
+  emit('open-download')
 }
 
 onMounted(() => {
