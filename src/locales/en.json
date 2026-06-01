@@ -68,6 +68,12 @@
     "currency": "IQD",
     "fallbackCategory": "Other"
   },
+  "notFound": {
+    "label": "404",
+    "title": "Page not found",
+    "description": "The link you opened is incorrect or no longer available. You can return home and continue browsing Khaleea.",
+    "backHome": "Back to home"
+  },
   "privacy": {
     "title": "Privacy Policy",
     "languageLabel": "Language",

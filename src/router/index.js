@@ -27,6 +27,12 @@ const seoByRoute = {
     keywords: 'خلية, Khaleea, سياسة الخصوصية, privacy policy',
     canonicalPath: '/privacy-policy',
   },
+  'not-found': {
+    title: 'الصفحة غير موجودة | خلية - Khaleea',
+    description: 'الصفحة المطلوبة غير موجودة. يمكنك الرجوع إلى الصفحة الرئيسية لتصفح تطبيق خلية.',
+    keywords: defaultKeywords,
+    canonicalPath: '/',
+  },
 }
 
 const setMetaContent = (selector, content) => {
@@ -50,6 +56,7 @@ const HomePage = () => import('../views/HomePage.vue')
 const EMenuPage = () => import('../views/EMenuPage.vue')
 const PrivacyPolicyPage = () => import('../views/PrivacyPolicyPage.vue')
 const RestaurantMenuPage = () => import('../views/RestaurantMenuPage.vue')
+const NotFoundPage = () => import('../views/NotFoundPage.vue')
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -77,6 +84,12 @@ const router = createRouter({
       path: '/e-menu/:id',
       name: 'e-menu-restaurant',
       component: RestaurantMenuPage,
+      meta: { requiresAuth: false },
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'not-found',
+      component: NotFoundPage,
       meta: { requiresAuth: false },
     },
   ],
