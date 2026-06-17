@@ -163,5 +163,45 @@ const handleDownloadRequest = (platform) => {
     <RouterView v-slot="{ Component }">
       <component :is="Component" :open-download-modal="handleDownloadRequest" />
     </RouterView>
+
+    <footer class="relative overflow-hidden border-t border-white/10 bg-[linear-gradient(145deg,#171210_0%,#0d0d0d_100%)] text-white">
+      <div class="pointer-events-none absolute -right-20 -top-24 h-64 w-64 rounded-full bg-brand-accent/10 blur-3xl"></div>
+      <div class="pointer-events-none absolute -bottom-24 -left-20 h-64 w-64 rounded-full bg-brand-accent/10 blur-3xl"></div>
+
+      <div >
+        <div class="relative mx-auto flex max-w-[1200px] flex-col gap-8 px-5 py-10 text-right md:flex-row-reverse md:items-center md:justify-between md:px-8 lg:px-10">
+          <div class="">
+            <p class="mb-3 text-right text-sm font-extrabold text-brand-accent">{{ t('footer.support') }}</p>
+            <div class="grid gap-3 sm:grid-cols-2">
+              <a
+                  href="mailto:support@khaleeaapp.com"
+                  class="group rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-right transition hover:border-brand-accent/60 hover:bg-brand-accent/10"
+              >
+                <span class="block text-xs text-white/45">{{ t('footer.email') }}</span>
+                <span class="mt-1 block font-bold text-white group-hover:text-brand-accent">support@khaleeaapp.com</span>
+              </a>
+              <a
+                  href="tel:+9647777602666"
+                  dir="ltr"
+                  class="group rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-right transition hover:border-brand-accent/60 hover:bg-brand-accent/10"
+              >
+                <span class="block text-xs text-white/45">{{ t('footer.phone') }}</span>
+                <span class="mt-1 block font-bold text-white group-hover:text-brand-accent">+964 777 760 2666</span>
+              </a>
+            </div>
+          </div>
+          <div class="max-w-md">
+            <div class="flex items-center gap-2">
+              <img class="w-12" src="/logo.png" alt="Khaleea logo">
+              <span class="text-3xl font-black leading-none">{{ t('brand.name') }}</span>
+            </div>
+            <p class="mt-3 text-sm leading-7 text-white/55">{{ t('footer.description') }}</p>
+          </div>
+        </div>
+        <div class="w-full flex items-center pb-6 justify-center">
+          <p class="mt-4 text-sm text-white/35">© {{ new Date().getFullYear() }} {{ t('brand.name') }}. {{ t('footer.rights') }}.</p>
+        </div>
+      </div>
+    </footer>
   </div>
 </template>

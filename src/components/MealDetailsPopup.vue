@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { formatPrice } from '../utils/menu'
+import { formatPrice, getMealBasePrice, getMealOptions, getPositiveOptionPrice } from '../utils/menu'
 
 const props = defineProps({
   meal: {
@@ -13,6 +13,8 @@ const props = defineProps({
 const emit = defineEmits(['close'])
 
 const { t } = useI18n()
+
+const mealOptions = computed(() => getMealOptions(props.meal))
 
 const mealTags = computed(() =>
   Array.isArray(props.meal?.tags)
@@ -76,7 +78,23 @@ const closePopup = () => {
 
           <div class="border-y border-white/10 py-4 text-2xl font-black">
             <span class="text-brand-accent">{{ t('common.currency') }}</span>
-            {{ formatPrice(meal.price) }}
+            {{ formatPrice(getMealBasePrice(meal)) }}
+          </div>
+
+          <div v-if="mealOptions.length" class="mt-5">
+            <h3 class="text-lg font-extrabold">{{ t('meal.options') }}</h3>
+            <div class="mt-3 space-y-2">
+              <div
+                v-for="option in mealOptions"
+                :key="option.id || option._id || option.title"
+                class="flex flex-row-reverse items-center justify-between gap-3 rounded-[8px] border border-brand-accent/20 bg-brand-accent/10 px-4 py-3 text-right"
+              >
+                <span class="font-bold text-brand-accent">
+                  {{ getPositiveOptionPrice(option) ? `${formatPrice(getPositiveOptionPrice(option))} ${t('common.currency')}` : t('meal.free') }}
+                </span>
+                <span>{{ option.title }}</span>
+              </div>
+            </div>
           </div>
 
           <div v-if="mealTags.length" class="mt-5">
@@ -87,17 +105,18 @@ const closePopup = () => {
                 :key="tag.id || tag._id || tag.title"
                 class="flex items-center justify-between rounded-[8px] border border-white/10 bg-white/5 px-4 py-3"
               >
+                <span>{{ tag.title }}</span>
+
                 <span class="font-bold text-brand-accent">
                   {{ Number(tag.price || 0) ? `${formatPrice(tag.price)} ${t('common.currency')}` : t('meal.free') }}
                 </span>
-                <span>{{ tag.title }}</span>
               </div>
             </div>
           </div>
 
           <div v-if="mealNotes.length" class="mt-5">
             <h3 class="text-lg font-extrabold">{{ t('meal.notes') }}</h3>
-            <div class="mt-3 flex flex-wrap justify-end gap-2">
+            <div class="mt-3 flex flex-wrap justify-start gap-2">
               <span
                 v-for="note in mealNotes"
                 :key="note.id || note._id || note.title"

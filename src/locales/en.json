@@ -19,6 +19,13 @@
     "iosStore": "App Store · iOS & iPadOS",
     "androidStore": "Google Play · Android"
   },
+  "footer": {
+    "description": "Khaleea food delivery and digital restaurant menus.",
+    "support": "Support",
+    "email": "Email",
+    "phone": "Phone",
+    "rights": "All rights reserved"
+  },
   "home": {
     "serviceArea": "Delivery is available in Baqubah",
     "headlineStart": "Order",
@@ -59,6 +66,7 @@
     "backToMenu": "Back to menu",
     "restaurantOpen": "Restaurant open",
     "restaurantClosed": "Restaurant closed",
+    "options": "Options",
     "extras": "Extras",
     "notes": "Notes",
     "free": "Free",
